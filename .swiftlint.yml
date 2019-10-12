@@ -1,0 +1,27 @@
+disabled_rules:
+  - control_statement
+  - file_length
+  - line_length
+  - cyclomatic_complexity
+  - block_based_kvo
+  - function_body_length
+
+type_name:
+  min_length: 2
+  max_length:
+    warning: 60
+    error: 70
+
+identifier_name:
+  min_length:
+    warning: 1
+  max_length:
+    warning: 60
+    error: 70
+
+excluded:
+  - Carthage
+  - Pods
+  - inspireTests
+  - inspireUITests
+  - Frameworks

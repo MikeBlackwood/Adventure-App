@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15400" systemVersion="18G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Article" representedClassName=".Article" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="post" optional="YES" attributeType="String"/>
+        <attribute name="subtitle" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="country" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Country" inverseName="posts" inverseEntity="Country"/>
+    </entity>
+    <entity name="Country" representedClassName=".Country" isAbstract="YES" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="subtitle" optional="YES" attributeType="String"/>
+        <attribute name="thumbnail" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="posts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Article" inverseName="country" inverseEntity="Article"/>
+    </entity>
+    <elements>
+        <element name="Article" positionX="222.79296875" positionY="161.81640625" width="128" height="118"/>
+        <element name="Country" positionX="-63" positionY="-18" width="128" height="120"/>
+    </elements>
+</model>
