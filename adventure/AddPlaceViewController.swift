@@ -19,8 +19,6 @@ class AddPlaceViewController: UIViewController, TypeToStringProtocol {
         return picker
     }()
 
-    var placeTitle: String?
-    var subtitle: String?
     private var storage: NSManagedObjectContext?
     var placethumbnail: Data?
     var privateMOC = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)

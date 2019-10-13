@@ -7,19 +7,33 @@
 //
 
 import UIKit
+import CoreData
 
 class AddPostViewController: UIViewController {
 
-    @IBOutlet weak var postTitle: UITextField!
-    @IBOutlet weak var postSubtitle: UITextField!
-    @IBOutlet weak var postText: UITextField!
-    @IBOutlet weak var savePostBtn: UIButton!
-
+    @IBOutlet weak var articleTitleField: UITextField!
+    @IBOutlet weak var articleSubtitleField: UITextField!
+    @IBOutlet weak var articleTextField: UITextField!
+    private var managedContextObject: NSManagedObjectContext?
+    private var country: Country?
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
 
+    @IBAction func addArticle(_ sender: Any) {
+        let isTitleValid = validateText(textfield: articleTitleField)
+        let isSubtitleValid = validateText(textfield: articleSubtitleField)
+        let isTextValid = validateText(textfield: articleTextField)
+        guard isTitleValid, isSubtitleValid, isTextValid != false else {return }
+        addNewArticle(title: articleTitleField.text!, subtitle: articleSubtitleField.text!, post: articleTextField.text!)
+        navigationController?.popViewController(animated: true)
+    }
+
+    func setupController(context: NSManagedObjectContext?, country: Country?) {
+        self.managedContextObject = context
+        self.country = country
+    }
 }
 
 extension AddPostViewController: UITextFieldDelegate {
@@ -47,4 +61,35 @@ extension AddPostViewController: UITextFieldDelegate {
          return true
 
 }
+}
+
+// MARK: - Add New Article
+extension AddPostViewController {
+    private func addNewArticle(title: String, subtitle: String, post: String) {
+        guard let context = managedContextObject else { return }
+          let newArticle = Article(context: context)
+          newArticle.id = UUID().description
+          newArticle.title = title
+          newArticle.subtitle = subtitle
+          newArticle.post = post
+        newArticle.country = country!
+        if context.hasChanges {
+              do {
+                  try context.save()
+              } catch {
+                  let error = error as NSError
+                  fatalError("Erorr \(error) has occured. \(error.userInfo)")
+              }
+        }
+      }
+
+     private func validateText(textfield: UITextField ) -> Bool {
+          let text = textfield.text!
+          let field = text.trimmingCharacters(in: .whitespacesAndNewlines)
+          guard !field.isEmpty else {
+              print("field ")
+              return false
+          }
+          return true
+      }
 }

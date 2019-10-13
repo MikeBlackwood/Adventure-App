@@ -24,6 +24,11 @@ class PostCollectionView: UICollectionView {
 }
 
 extension PostCollectionView {
+    func reloadData(articles: [Article]) {
+        posts = articles
+        reloadData()
+    }
+    
     private func setupLayout() {
         guard let collectionViewLayout = collectionViewLayout as? UICollectionViewFlowLayout else { return }
         collectionViewLayout.collectionView?.backgroundView?.backgroundColor = .none

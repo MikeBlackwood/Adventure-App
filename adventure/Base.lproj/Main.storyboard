@@ -110,35 +110,44 @@
         <!--Add Post View Controller-->
         <scene sceneID="Je1-bd-4sb">
             <objects>
-                <viewController id="hlE-hM-UaZ" customClass="AddPostViewController" customModule="adventure" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddPostViewController" id="hlE-hM-UaZ" customClass="AddPostViewController" customModule="adventure" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uGO-P2-Bdb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Post" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ul0-2S-lWb">
-                                <rect key="frame" x="25" y="113" width="154" height="42"/>
+                                <rect key="frame" x="25" y="69" width="154" height="42"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0a6-lv-rav">
-                                <rect key="frame" x="20" y="279" width="374" height="34"/>
+                                <rect key="frame" x="20" y="235" width="374" height="34"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Subtitle " textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FRJ-9n-qnF">
-                                <rect key="frame" x="20" y="333" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="hlE-hM-UaZ" id="bfi-uH-ZAA"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Subtitle " textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FRJ-9n-qnF">
+                                <rect key="frame" x="20" y="289" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="hlE-hM-UaZ" id="2hX-kf-TgJ"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="Post" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qYD-cT-IMj">
-                                <rect key="frame" x="20" y="387" width="374" height="75"/>
+                                <rect key="frame" x="20" y="343" width="374" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="8SR-fA-YlN"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="hlE-hM-UaZ" id="lgc-Kx-JBf"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="149-qs-3rn">
                                 <rect key="frame" x="99" y="745" width="216" height="34"/>
@@ -147,6 +156,9 @@
                                 <state key="normal" title="Save">
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="addArticle:" destination="hlE-hM-UaZ" eventType="touchUpInside" id="kpK-r5-gHr"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -170,10 +182,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="uIv-5s-b4N"/>
                     <connections>
-                        <outlet property="postSubtitle" destination="FRJ-9n-qnF" id="pVd-M0-Qfo"/>
-                        <outlet property="postText" destination="qYD-cT-IMj" id="d37-Ys-Xjd"/>
-                        <outlet property="postTitle" destination="0a6-lv-rav" id="zIH-EM-lLr"/>
-                        <outlet property="savePostBtn" destination="149-qs-3rn" id="kfK-Ye-g8b"/>
+                        <outlet property="articleSubtitleField" destination="FRJ-9n-qnF" id="pVd-M0-Qfo"/>
+                        <outlet property="articleTextField" destination="qYD-cT-IMj" id="d37-Ys-Xjd"/>
+                        <outlet property="articleTitleField" destination="0a6-lv-rav" id="zIH-EM-lLr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qT5-og-9BE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -251,7 +262,7 @@
                     <navigationItem key="navigationItem" id="2e9-Mk-j3N">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="t5b-yj-VnD">
                             <connections>
-                                <segue destination="hlE-hM-UaZ" kind="show" id="m2h-WB-5tS"/>
+                                <action selector="addArticleVC:" destination="Rqh-sH-sE4" id="fK3-Vg-aNK"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -364,7 +375,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="1qo-rg-mQR">
                                 <rect key="frame" x="35" y="346" width="344" height="126"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Place" textAlignment="center" minimumFontSize="20" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="kxN-sy-D8P">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Place" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="20" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="kxN-sy-D8P">
                                         <rect key="frame" x="0.0" y="0.0" width="344" height="34"/>
                                         <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" keyboardAppearance="light" returnKeyType="next"/>

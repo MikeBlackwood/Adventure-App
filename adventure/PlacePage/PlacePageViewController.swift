@@ -20,10 +20,17 @@ class PlacePageViewController: UIViewController {
     @IBOutlet weak var thumbnail: UIImageView!
     @IBOutlet weak var postCollectionView: PostCollectionView!
 
+    @IBAction func addArticleVC(_ sender: Any) {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+              guard let controller = storyBoard.instantiateViewController(withIdentifier: String(describing: AddPostViewController.self) ) as? AddPostViewController else {return}
+        controller.setupController(context: managedObjectContext, country: country)
+              show(controller, sender: self )
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupViewController()
         updateCollectionViewData()
+        setupViewController()
         setupCollectionView()
         setupDataObservers()
     }
@@ -95,6 +102,7 @@ extension PlacePageViewController {
             let result = try context.fetch(request)
             let articles = result.compactMap({ $0 as? Article })
             arcticles = articles
+            postCollectionView.reloadData(articles: articles)
         } catch {
 
         }
