@@ -36,7 +36,6 @@ extension PlacesCollectionView {
     }
 
     private func setupLayout() {
-
         guard  let placesCollectionViewLayout = collectionViewLayout as? UICollectionViewFlowLayout else {return}
         placesCollectionViewLayout.collectionView?.backgroundView?.backgroundColor = .none
         placesCollectionViewLayout.itemSize = CGSize(width: frame.size.width, height: frame.size.height / 3)

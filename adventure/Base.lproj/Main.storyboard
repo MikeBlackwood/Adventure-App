@@ -208,8 +208,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <collectionView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DGK-1O-Nw3" customClass="PostCollectionView" customModule="adventure" customModuleProvider="target">
-                                <rect key="frame" x="20" y="472" width="374" height="330"/>
+                            <collectionView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DGK-1O-Nw3" customClass="PostCollectionView" customModule="adventure" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="472" width="414" height="330"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="330" id="XMR-GR-4Oh"/>
@@ -220,22 +220,10 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PostCollectionViewCell" id="YY4-Rb-4Yl">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                        <connections>
-                                            <segue destination="j6W-qM-q4m" kind="show" id="tKx-24-pvB"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
+                                <cells/>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="350" translatesAutoresizingMaskIntoConstraints="NO" id="5ei-9a-NRu">
-                                <rect key="frame" x="26" y="238" width="350" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="350" translatesAutoresizingMaskIntoConstraints="NO" id="5ei-9a-NRu">
+                                <rect key="frame" x="26" y="244" width="350" height="29"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="24"/>
                                 <color key="textColor" red="0.96448545240000005" green="0.32264491169999998" blue="0.0" alpha="0.81266906319999999" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -249,9 +237,9 @@
                             <constraint firstAttribute="bottom" secondItem="1SY-as-cRS" secondAttribute="bottom" id="BxQ-af-PNJ"/>
                             <constraint firstItem="FFf-WY-fJO" firstAttribute="leading" secondItem="07K-D5-BCp" secondAttribute="leading" constant="26" id="FfD-hW-wDc"/>
                             <constraint firstItem="1SY-as-cRS" firstAttribute="leading" secondItem="07K-D5-BCp" secondAttribute="leading" id="YK7-5p-6jV"/>
-                            <constraint firstItem="07K-D5-BCp" firstAttribute="trailing" secondItem="DGK-1O-Nw3" secondAttribute="trailing" constant="20" id="ZjA-CP-RiX"/>
+                            <constraint firstAttribute="trailing" secondItem="DGK-1O-Nw3" secondAttribute="trailing" id="ZjA-CP-RiX"/>
                             <constraint firstItem="5ei-9a-NRu" firstAttribute="top" secondItem="FFf-WY-fJO" secondAttribute="bottom" constant="14" id="emF-FQ-3VP"/>
-                            <constraint firstItem="DGK-1O-Nw3" firstAttribute="leading" secondItem="07K-D5-BCp" secondAttribute="leading" constant="20" id="fnX-78-d78"/>
+                            <constraint firstItem="DGK-1O-Nw3" firstAttribute="leading" secondItem="aje-Gk-BtC" secondAttribute="leading" id="fnX-78-d78"/>
                             <constraint firstItem="07K-D5-BCp" firstAttribute="trailing" secondItem="5ei-9a-NRu" secondAttribute="trailing" constant="38" id="gAe-bt-hQV"/>
                             <constraint firstItem="07K-D5-BCp" firstAttribute="bottom" secondItem="DGK-1O-Nw3" secondAttribute="bottom" constant="60" id="jwc-fs-9NI"/>
                             <constraint firstItem="5ei-9a-NRu" firstAttribute="leading" secondItem="07K-D5-BCp" secondAttribute="leading" constant="26" id="qlm-cR-Axg"/>

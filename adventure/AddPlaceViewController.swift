@@ -34,9 +34,10 @@ class AddPlaceViewController: UIViewController, TypeToStringProtocol {
     @IBAction func savePlaces(_ sender: Any) {
         let isTitleValid = validateText(textfield: placeField)
         let isSubtitleValid = validateText(textfield: subtitleField)
+        let date = NSDate() as Date
         guard isTitleValid, isSubtitleValid, placethumbnail != nil else { return }
 
-        storeNewPlace(title: placeField.text!, subtitle: subtitleField.text!, thumbnail: placethumbnail!)
+        storeNewPlace(title: placeField.text!, subtitle: subtitleField.text!, thumbnail: placethumbnail!, date: date)
         navigationController?.popViewController(animated: true)
     }
 
@@ -100,13 +101,13 @@ extension AddPlaceViewController: UITextFieldDelegate {
 }
 
 extension AddPlaceViewController {
-    private func storeNewPlace(title: String, subtitle: String, thumbnail: Data ) {
+    private func storeNewPlace(title: String, subtitle: String, thumbnail: Data, date: Date) {
         let newPlace = Country(context: privateMOC)
         newPlace.id = UUID().description
         newPlace.title = title
         newPlace.subtitle = subtitle
-        newPlace.thumbnail = thumbnail as NSData
-
+        newPlace.thumbnail = thumbnail as NSData as Data
+        newPlace.date = date
         if privateMOC.hasChanges {
             do {
                 try privateMOC.save()

@@ -16,6 +16,7 @@ protocol AdventureVCListener: NSObject {
 class AdventureMainViewController: UIViewController {
     @IBOutlet weak var placeSearchBar: UISearchBar!
     @IBOutlet weak var placesCollectionView: PlacesCollectionView!
+    
     weak var managedObjectContext: NSManagedObjectContext?
     private var countries: [Country] = []
     override func viewDidLoad() {
@@ -71,12 +72,12 @@ extension AdventureMainViewController {
     private func updateCollectionViewData() {
         guard let context = managedObjectContext else { return }
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Country")
+        request.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
         do {
             let result = try context.fetch(request)
             let countries = result.compactMap({ $0 as? Country })
             self.countries = countries
             placesCollectionView.reloadData(countries: countries)
-
         } catch {
             print("Failed")
         }

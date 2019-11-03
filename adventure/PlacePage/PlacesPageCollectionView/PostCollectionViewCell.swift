@@ -13,9 +13,17 @@ class PostCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var subtitle: UILabel!
     @IBOutlet weak var post: UILabel!
+    @IBOutlet weak var containerView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        setupCell()
     }
 
+}
+
+extension PostCollectionViewCell {
+    private func setupCell() {
+        containerView.clipsToBounds = true
+        containerView.layer.cornerRadius = 15
+    }
 }

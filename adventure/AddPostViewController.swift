@@ -25,8 +25,9 @@ class AddPostViewController: UIViewController {
         let isTitleValid = validateText(textfield: articleTitleField)
         let isSubtitleValid = validateText(textfield: articleSubtitleField)
         let isTextValid = validateText(textfield: articleTextField)
+        let date = NSDate() as Date
         guard isTitleValid, isSubtitleValid, isTextValid != false else {return }
-        addNewArticle(title: articleTitleField.text!, subtitle: articleSubtitleField.text!, post: articleTextField.text!)
+        addNewArticle(title: articleTitleField.text!, subtitle: articleSubtitleField.text!, post: articleTextField.text!, date: date)
         navigationController?.popViewController(animated: true)
     }
 
@@ -65,14 +66,15 @@ extension AddPostViewController: UITextFieldDelegate {
 
 // MARK: - Add New Article
 extension AddPostViewController {
-    private func addNewArticle(title: String, subtitle: String, post: String) {
+    private func addNewArticle(title: String, subtitle: String, post: String, date: Date) {
         guard let context = managedContextObject else { return }
           let newArticle = Article(context: context)
           newArticle.id = UUID().description
           newArticle.title = title
           newArticle.subtitle = subtitle
           newArticle.post = post
-        newArticle.country = country!
+          newArticle.country = country!
+        newArticle.date = date
         if context.hasChanges {
               do {
                   try context.save()

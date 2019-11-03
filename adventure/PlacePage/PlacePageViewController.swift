@@ -97,6 +97,7 @@ extension PlacePageViewController {
         guard let context = managedObjectContext, let country = country else {return}
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Article")
         request.predicate = NSPredicate(format: "%K == %@", #keyPath(Article.country), country)
+        request.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
 
         do {
             let result = try context.fetch(request)

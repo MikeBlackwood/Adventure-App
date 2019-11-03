@@ -28,13 +28,13 @@ extension PostCollectionView {
         posts = articles
         reloadData()
     }
-    
+
     private func setupLayout() {
         guard let collectionViewLayout = collectionViewLayout as? UICollectionViewFlowLayout else { return }
         collectionViewLayout.collectionView?.backgroundView?.backgroundColor = .none
-        collectionViewLayout.itemSize = CGSize(width: frame.size.width - 10, height: frame.size.height / 1.3 )
-        collectionViewLayout.minimumInteritemSpacing = 15
-        collectionViewLayout.minimumLineSpacing = 10
+        collectionViewLayout.itemSize = CGSize(width: frame.size.width, height: frame.size.height / 1.3 )
+        collectionViewLayout.minimumInteritemSpacing = 0
+        collectionViewLayout.minimumLineSpacing = 0
         collectionViewLayout.scrollDirection = .horizontal
     }
 
@@ -73,6 +73,9 @@ extension PostCollectionView: UICollectionViewDataSource, UICollectionViewDelega
         collectionViewDelegate?.sendData(post: posts[indexPath.row]! )
         }
         }
+//    func collectionView(_ collectionView: UICollectionView, targetContentOffsetForProposedContentOffset proposedContentOffset: CGPoint) -> CGPoint {
+//
+//    }
 }
 extension PostCollectionView {
     func reviceData(posts: [Article] ) {

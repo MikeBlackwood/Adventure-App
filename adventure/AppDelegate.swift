@@ -46,24 +46,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         faroeIslands.title = "Faroe Islands"
         faroeIslands.subtitle = "Lost paradise"
         faroeIslands.id = UUID().description
+        faroeIslands.date = NSDate().addingTimeInterval(240) as Date
         let faroeImage = UIImage(named: "faroeislands")
-        faroeIslands.thumbnail = faroeImage!.pngData() as NSData?
+        faroeIslands.thumbnail = faroeImage!.pngData() as NSData? as Data?
         faroeIslandsPost.country = faroeIslands
         faroeIslandsPost.post = "Múlafossur is a watarfall like no other. A nice walk from the village houses in Gásadalur you'll find this famous waterfall. Múlafossur is situated on Vagar island some 11 km (7 miles) from Vagar Airport. Just before getting to the waterfall, you will drive through the Gásadalstunnilin tunnel.There is a parking lot near the waterfall. From this parking lot, you will walk for 2 minutes in order to reach the breathtakingly beautiful waterfall that drops into the ocean. The waterfall is over 30 meters (100 feet) high."
         faroeIslandsPost.title = "Monufossur"
         faroeIslandsPost.subtitle = "Waterfall to remember"
-
+        faroeIslandsPost.date = NSDate().addingTimeInterval(160) as Date
         let australia = Country(context: context)
         australia.subtitle = "New Year comes in Summer"
         australia.title = "Australia"
+        australia.date = NSDate().addingTimeInterval(210) as Date
         let australiaImg = UIImage(named: "australia")
-        australia.thumbnail = australiaImg?.pngData() as NSData?
+        australia.thumbnail = australiaImg?.pngData() as NSData? as Data?
         australia.id = UUID().description
         let beach = Article(context: context)
         beach.title = "Cairns"
         beach.subtitle = "Somewhere in the rainforest"
         beach.post = "Although Cairns itself is quite an unattractive place, the rainforests that surround it and the beautiful turquoise waters that lap against its beaches more than make up for the lack of sights in the city. A popular tourist destination, the city is considered to be the gateway to the Great Barrier Reef; this is the primary reason why Cairns is so inundated with tourists. Away from the reef, there are loads of amazing natural sights nearby, and lots of people stop by Cairns on their way to visit Daintree National Park or the Wet Tropics of Queensland. The fourth most popular city to visit in Australia, Cairns has enough good bars, restaurants and shopping options to keep visitors entertained before they head off into the stunning nature nearby. "
         beach.country = australia
+        beach.date = NSDate().addingTimeInterval(120) as Date
         saveContext()
     }
 

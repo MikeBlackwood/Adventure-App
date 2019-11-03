@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		F768FA0F231C7C23004490A4 /* DetourDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F768FA0D231C7C23004490A4 /* DetourDataModel.xcdatamodeld */; };
 		F76CE967234D9CCC002C6997 /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76CE966234D9CCC002C6997 /* AddPostViewController.swift */; };
+		F76F561C236C9BD400CE9BFA /* Article+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76F5618236C9BD400CE9BFA /* Article+CoreDataClass.swift */; };
+		F76F561D236C9BD400CE9BFA /* Article+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76F5619236C9BD400CE9BFA /* Article+CoreDataProperties.swift */; };
+		F76F561E236C9BD400CE9BFA /* Country+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76F561A236C9BD400CE9BFA /* Country+CoreDataClass.swift */; };
+		F76F561F236C9BD400CE9BFA /* Country+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76F561B236C9BD400CE9BFA /* Country+CoreDataProperties.swift */; };
 		F78E803822F664AB004B0FB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78E803722F664AB004B0FB5 /* AppDelegate.swift */; };
 		F78E803A22F664AB004B0FB5 /* AdventureMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78E803922F664AB004B0FB5 /* AdventureMainViewController.swift */; };
 		F78E803D22F664AB004B0FB5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F78E803B22F664AB004B0FB5 /* Main.storyboard */; };
@@ -25,15 +29,15 @@
 		F7E2258D22FEA2FB009C2E85 /* PostCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E2258C22FEA2FB009C2E85 /* PostCollectionView.swift */; };
 		F7E2259422FEB0C7009C2E85 /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E2259222FEB0C7009C2E85 /* PostCollectionViewCell.swift */; };
 		F7E2259522FEB0C7009C2E85 /* PostCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7E2259322FEB0C7009C2E85 /* PostCollectionViewCell.xib */; };
-		F7F87A42231CC67700BDED42 /* Article+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F87A3E231CC67700BDED42 /* Article+CoreDataClass.swift */; };
-		F7F87A43231CC67700BDED42 /* Article+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F87A3F231CC67700BDED42 /* Article+CoreDataProperties.swift */; };
-		F7F87A44231CC67700BDED42 /* Country+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F87A40231CC67700BDED42 /* Country+CoreDataClass.swift */; };
-		F7F87A45231CC67700BDED42 /* Country+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F87A41231CC67700BDED42 /* Country+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F768FA0E231C7C23004490A4 /* DetourDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DetourDataModel.xcdatamodel; sourceTree = "<group>"; };
 		F76CE966234D9CCC002C6997 /* AddPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostViewController.swift; sourceTree = "<group>"; };
+		F76F5618236C9BD400CE9BFA /* Article+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Article+CoreDataClass.swift"; path = "../Article+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F76F5619236C9BD400CE9BFA /* Article+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Article+CoreDataProperties.swift"; path = "../Article+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F76F561A236C9BD400CE9BFA /* Country+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Country+CoreDataClass.swift"; path = "../Country+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F76F561B236C9BD400CE9BFA /* Country+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Country+CoreDataProperties.swift"; path = "../Country+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F78E803422F664AB004B0FB5 /* adventure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = adventure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F78E803722F664AB004B0FB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F78E803922F664AB004B0FB5 /* AdventureMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureMainViewController.swift; sourceTree = "<group>"; };
@@ -52,10 +56,6 @@
 		F7E2258C22FEA2FB009C2E85 /* PostCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionView.swift; sourceTree = "<group>"; };
 		F7E2259222FEB0C7009C2E85 /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
 		F7E2259322FEB0C7009C2E85 /* PostCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCollectionViewCell.xib; sourceTree = "<group>"; };
-		F7F87A3E231CC67700BDED42 /* Article+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Article+CoreDataClass.swift"; sourceTree = "<group>"; };
-		F7F87A3F231CC67700BDED42 /* Article+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Article+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		F7F87A40231CC67700BDED42 /* Country+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Country+CoreDataClass.swift"; sourceTree = "<group>"; };
-		F7F87A41231CC67700BDED42 /* Country+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Country+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,10 +72,10 @@
 		F730767822FBD49F00408F95 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F7F87A3E231CC67700BDED42 /* Article+CoreDataClass.swift */,
-				F7F87A3F231CC67700BDED42 /* Article+CoreDataProperties.swift */,
-				F7F87A40231CC67700BDED42 /* Country+CoreDataClass.swift */,
-				F7F87A41231CC67700BDED42 /* Country+CoreDataProperties.swift */,
+				F76F5618236C9BD400CE9BFA /* Article+CoreDataClass.swift */,
+				F76F5619236C9BD400CE9BFA /* Article+CoreDataProperties.swift */,
+				F76F561A236C9BD400CE9BFA /* Country+CoreDataClass.swift */,
+				F76F561B236C9BD400CE9BFA /* Country+CoreDataProperties.swift */,
 				F768FA0D231C7C23004490A4 /* DetourDataModel.xcdatamodeld */,
 			);
 			path = Model;
@@ -275,20 +275,20 @@
 			files = (
 				F78E804E22F66A2E004B0FB5 /* PlacesCollectionView.swift in Sources */,
 				F768FA0F231C7C23004490A4 /* DetourDataModel.xcdatamodeld in Sources */,
+				F76F561C236C9BD400CE9BFA /* Article+CoreDataClass.swift in Sources */,
 				F76CE967234D9CCC002C6997 /* AddPostViewController.swift in Sources */,
-				F7F87A42231CC67700BDED42 /* Article+CoreDataClass.swift in Sources */,
 				F7BE3F8B22FF9DC2009F520C /* ArticleViewController.swift in Sources */,
 				F7B359522312382F00C6686D /* DataInjection.swift in Sources */,
 				F7BB652522FA773E000788C0 /* TypeToString.swift in Sources */,
 				F7BB651F22FA603C000788C0 /* AddPlaceViewController.swift in Sources */,
 				F78E803A22F664AB004B0FB5 /* AdventureMainViewController.swift in Sources */,
-				F7F87A45231CC67700BDED42 /* Country+CoreDataProperties.swift in Sources */,
+				F76F561F236C9BD400CE9BFA /* Country+CoreDataProperties.swift in Sources */,
 				F7BB652322FA71A8000788C0 /* PlacePageViewController.swift in Sources */,
 				F7E2258D22FEA2FB009C2E85 /* PostCollectionView.swift in Sources */,
-				F7F87A43231CC67700BDED42 /* Article+CoreDataProperties.swift in Sources */,
+				F76F561D236C9BD400CE9BFA /* Article+CoreDataProperties.swift in Sources */,
 				F7E2259422FEB0C7009C2E85 /* PostCollectionViewCell.swift in Sources */,
 				F78E803822F664AB004B0FB5 /* AppDelegate.swift in Sources */,
-				F7F87A44231CC67700BDED42 /* Country+CoreDataClass.swift in Sources */,
+				F76F561E236C9BD400CE9BFA /* Country+CoreDataClass.swift in Sources */,
 				F78E804B22F66861004B0FB5 /* PlacesCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
