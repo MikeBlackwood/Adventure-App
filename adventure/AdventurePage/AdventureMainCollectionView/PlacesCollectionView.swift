@@ -11,17 +11,11 @@ import CoreData
 
 class PlacesCollectionView: UICollectionView {
 
-    private var places: [Country] = []
-    var didSelectedItem:((_ atIndex: Int) -> Void)?
+    var didSelectedItem:((_ indexPath: IndexPath) -> Void)?
 
     override func awakeFromNib() {
         super.awakeFromNib()
         setupCollectionView()
-    }
-
-    func reloadData(countries: [Country]) {
-        places = countries
-        reloadData()
     }
 }
 
@@ -29,7 +23,6 @@ extension PlacesCollectionView {
 
     private func setupCollectionView() {
         delegate = self
-        dataSource = self
         setupLayout()
         registerCell()
 
@@ -49,30 +42,10 @@ extension PlacesCollectionView {
     }
 }
 
-//MARk: - UICollectionViewDataSource
-extension PlacesCollectionView: UICollectionViewDataSource {
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return places.count
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlacesCollectionViewCell", for: indexPath) as? PlacesCollectionViewCell else {
-            return UICollectionViewCell()
-        }
-        cell.layer.cornerRadius = 15
-        cell.mainTitle.text = places[indexPath.row].title
-        cell.subtitle.text = places[indexPath.row].subtitle
-        let img = UIImage(data: places[indexPath.row].thumbnail! as Data)
-        cell.placeImg.image = img
-        return cell
-    }
-}
-
 // MARK: - UICollectionViewDelegate
 extension PlacesCollectionView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let didSelectedItem = didSelectedItem else { return }
-        didSelectedItem(indexPath.row)
+        didSelectedItem(indexPath)
     }
 }

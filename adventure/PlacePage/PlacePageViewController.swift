@@ -22,9 +22,9 @@ class PlacePageViewController: UIViewController {
 
     @IBAction func addArticleVC(_ sender: Any) {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-              guard let controller = storyBoard.instantiateViewController(withIdentifier: String(describing: AddPostViewController.self) ) as? AddPostViewController else {return}
+        guard let controller = storyBoard.instantiateViewController(withIdentifier: String(describing: AddPostViewController.self) ) as? AddPostViewController else {return}
         controller.setupController(context: managedObjectContext, country: country)
-              show(controller, sender: self )
+        show(controller, sender: self )
     }
 
     override func viewDidLoad() {
@@ -65,33 +65,33 @@ extension PlacePageViewController {
 // MARK: - Observer for aricle updates
 extension PlacePageViewController {
 
-        private func setupDataObservers() {
-               guard let context = managedObjectContext else { return }
-               let center = NotificationCenter.default
-               center.addObserver(self, selector: #selector(managedObjectContextObjectsDidChange), name: NSNotification.Name.NSManagedObjectContextObjectsDidChange, object: context)
-           }
+    private func setupDataObservers() {
+        guard let context = managedObjectContext else { return }
+        let center = NotificationCenter.default
+        center.addObserver(self, selector: #selector(managedObjectContextObjectsDidChange), name: NSNotification.Name.NSManagedObjectContextObjectsDidChange, object: context)
+    }
 
-           @objc func managedObjectContextObjectsDidChange(notification: NSNotification) {
-               guard let userInfo = notification.userInfo else { return }
+    @objc func managedObjectContextObjectsDidChange(notification: NSNotification) {
+        guard let userInfo = notification.userInfo else { return }
 
-               if let inserts = userInfo[NSInsertedObjectsKey] as? Set<NSManagedObject>,
-                   let insertedItems = inserts.filter({ $0 is Article }).map({ $0 }) as? [Article],
-                   !insertedItems.isEmpty {
-                   updateCollectionViewData()
-               }
+        if let inserts = userInfo[NSInsertedObjectsKey] as? Set<NSManagedObject>,
+            let insertedItems = inserts.filter({ $0 is Article }).map({ $0 }) as? [Article],
+            !insertedItems.isEmpty {
+            updateCollectionViewData()
+        }
 
-               if let updatedSet = userInfo[NSUpdatedObjectsKey] as? Set<NSManagedObject>,
-                   let updatedItems = updatedSet.filter({ $0 is Article }).map({ $0 }) as? [Article],
-                   !updatedItems.isEmpty {
-                   updateCollectionViewData()
-               }
+        if let updatedSet = userInfo[NSUpdatedObjectsKey] as? Set<NSManagedObject>,
+            let updatedItems = updatedSet.filter({ $0 is Article }).map({ $0 }) as? [Article],
+            !updatedItems.isEmpty {
+            updateCollectionViewData()
+        }
 
-               if let deletedSet = userInfo[NSDeletedObjectsKey] as? Set<NSManagedObject>,
-                   let deletedItems = deletedSet.filter({ $0 is Article }).map({ $0 }) as? [Article],
-                   !deletedItems.isEmpty {
-                   updateCollectionViewData()
-               }
-           }
+        if let deletedSet = userInfo[NSDeletedObjectsKey] as? Set<NSManagedObject>,
+            let deletedItems = deletedSet.filter({ $0 is Article }).map({ $0 }) as? [Article],
+            !deletedItems.isEmpty {
+            updateCollectionViewData()
+        }
+    }
 
     private func updateCollectionViewData() {
         guard let context = managedObjectContext, let country = country else {return}
@@ -109,16 +109,16 @@ extension PlacePageViewController {
         }
     }
 }
-    // MARK: - PostDelegateProtocol
-    extension PlacePageViewController: PostDelegateProtocol {
-        func sendData(post: Article) {
-            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-            guard let controller = storyBoard.instantiateViewController(withIdentifier: String(describing: ArticleViewController.self)) as? ArticleViewController else {return}
-            controller.reciveData(data: post)
-            show(controller, sender: self)
-        }
+// MARK: - PostDelegateProtocol
+extension PlacePageViewController: PostDelegateProtocol {
+    func sendData(post: Article) {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        guard let controller = storyBoard.instantiateViewController(withIdentifier: String(describing: ArticleViewController.self)) as? ArticleViewController else {return}
+        controller.reciveData(data: post)
+        show(controller, sender: self)
     }
+}
 
-    // MARK: - TypeToStringProtocol
-    extension PlacePageViewController: TypeToStringProtocol {
+// MARK: - TypeToStringProtocol
+extension PlacePageViewController: TypeToStringProtocol {
 }
