@@ -104,7 +104,7 @@ extension AdventureMainViewController {
     private func updateCollectionViewData(filter: String?) {
         guard let context = managedObjectContext else { return }
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Country")
-        request.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
+        request.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
 
         if let filter = filter, !filter.isEmpty {
             let predicate = NSPredicate(format: "%K CONTAINS[c] %@", #keyPath(Country.title), filter)

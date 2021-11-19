@@ -85,7 +85,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 //        deleteData()
-//        preloadData()
+        preloadData()
         if let navController = window?.rootViewController,
             let controller = navController.children.first(where: { $0 is AdventureMainViewController }) as? AdventureMainViewController {
             controller.managedObjectContext = persistentContainer.viewContext

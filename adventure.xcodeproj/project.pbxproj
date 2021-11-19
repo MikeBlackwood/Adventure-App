@@ -111,8 +111,8 @@
 		F777DC15234EEFDE003F0A7D /* ArticlePage */ = {
 			isa = PBXGroup;
 			children = (
-				F7BE3F8A22FF9DC2009F520C /* ArticleViewController.swift */,
 				F7BE3F8922FF9D9E009F520C /* ArticleView */,
+				F7BE3F8A22FF9DC2009F520C /* ArticleViewController.swift */,
 			);
 			path = ArticlePage;
 			sourceTree = "<group>";

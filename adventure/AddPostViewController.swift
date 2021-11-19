@@ -89,7 +89,7 @@ extension AddPostViewController {
           let text = textfield.text!
           let field = text.trimmingCharacters(in: .whitespacesAndNewlines)
           guard !field.isEmpty else {
-              print("field ")
+              print("field")
               return false
           }
           return true
